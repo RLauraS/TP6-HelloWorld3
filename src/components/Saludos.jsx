@@ -1,18 +1,20 @@
 import React, { useState } from 'react';
 
-const Saludo = () => {
+const Saludo = (props) => {
   const [msj, setMsj] = useState('(from changed state)');
 
   const mostrarMensaje = () => {
-    alert(`Hello my friend ${msj}!`);
+    setMsj('Hello my friend (from changed state)!');
   };
 
   return (
     <div>
-      <h1>Hello my friend!</h1>
-      <button onClick={mostrarMensaje}>Click me</button>
+      <h1>Hello {props.amigo}!</h1>
+      <button onClick={mostrarMensaje}>Click Me</button>
+      <p>{msj}</p>
     </div>
   );
 };
 
 export default Saludo;
+
